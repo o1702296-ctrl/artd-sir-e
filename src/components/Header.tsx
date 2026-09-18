@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Language, LANGUAGE_OPTIONS, UI_TRANSLATIONS, LangOption } from '../data/pagesData';
-import { Printer, Globe, ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react';
+import { Language, LANGUAGE_OPTIONS, UI_TRANSLATIONS } from '../data/pagesData';
+import { Globe, ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react';
 
 interface HeaderProps {
   currentLanguage: Language;
@@ -8,7 +8,6 @@ interface HeaderProps {
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
-  onPrint: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -16,8 +15,7 @@ export const Header: React.FC<HeaderProps> = ({
   onLanguageChange,
   currentPage,
   totalPages,
-  onPageChange,
-  onPrint
+  onPageChange
 }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -90,9 +88,8 @@ export const Header: React.FC<HeaderProps> = ({
         </button>
       </div>
 
-      {/* Right Controls: Custom Screenshot-matching Language Selector Dropdown & Print */}
+      {/* Right Controls: Custom Language Selector Dropdown */}
       <div className="flex items-center gap-3">
-        {/* Custom Screenshot Language Selector */}
         <div className="relative" ref={dropdownRef}>
           <button
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
@@ -105,7 +102,7 @@ export const Header: React.FC<HeaderProps> = ({
             <ChevronDown className={`w-4 h-4 text-pink-300 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} />
           </button>
 
-          {/* Dropdown Menu Panel matching screenshot */}
+          {/* Dropdown Menu Panel */}
           {isDropdownOpen && (
             <div className="absolute right-0 mt-2 w-60 bg-[#1f0611] border-2 border-pink-500/60 rounded-2xl shadow-2xl overflow-hidden z-50 py-1 text-white font-sans">
               {LANGUAGE_OPTIONS.map((lang) => {
@@ -131,16 +128,6 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
           )}
         </div>
-
-        {/* Print PDF Button */}
-        <button
-          onClick={onPrint}
-          className="p-2.5 rounded-full bg-[#2b0816] hover:bg-[#3d0b20] text-zinc-200 hover:text-white border border-pink-500/50 transition flex items-center gap-1.5 text-xs shadow-md"
-          title={t.printPdf}
-        >
-          <Printer className="w-4 h-4 text-pink-400" />
-          <span className="hidden md:inline font-semibold">{t.printPdf}</span>
-        </button>
       </div>
     </header>
   );
