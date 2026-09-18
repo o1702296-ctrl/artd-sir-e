@@ -5,8 +5,10 @@
     <title>Redirecting...</title>
     <script>
       var path = window.location.pathname;
-      if (path.indexOf('bonus') !== -1) {
+      if (path.indexOf('bonus1') !== -1) {
         window.location.replace('/artd-sir-e/bonus1/');
+      } else if (path.indexOf('bonus2') !== -1) {
+        window.location.replace('/artd-sir-e/bonus2/');
       } else {
         window.location.replace('/artd-sir-e/');
       }
