@@ -19,19 +19,19 @@
   font-family: 'Cormorant Garamond', Georgia, serif;
 }
 
-/* Page Aspect Ratio 3:4 or Standard Book Portrait (e.g. 595x842 or 600x850) */
 .page-shadow {
   box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
 .pdf-page-container {
-  aspect-ratio: 1 / 1.414;
+  min-height: 750px;
   width: 100%;
-  max-width: 600px;
+  max-width: 720px;
   margin: 0 auto;
   position: relative;
-  overflow: hidden;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 @media print {
@@ -47,7 +47,6 @@
     break-after: page;
     box-shadow: none !important;
     max-width: 100% !important;
-    height: 100vh !important;
-    aspect-ratio: auto !important;
+    min-height: 100vh !important;
   }
 }
