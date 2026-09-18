@@ -7,8 +7,8 @@ interface PageRendererProps {
   onNavigateToPage?: (page: number) => void;
 }
 
-export const getKeyImage = (keyNum: number): string => `/pdf_images/key_${keyNum}.jpg`;
-export const getTocKeyImage = (keyNum: number): string => `/pdf_images/toc_key_${keyNum}.jpg`;
+export const getKeyImage = (keyNum: number): string => `pdf_images/key_${keyNum}.jpg`;
+export const getTocKeyImage = (keyNum: number): string => `pdf_images/toc_key_${keyNum}.jpg`;
 
 // Decorative Wavy SVG Line component
 const WavyLine: React.FC<{ className?: string; color?: string }> = ({ className = "w-32 h-6", color = "currentColor" }) => (
@@ -48,7 +48,7 @@ export const PageRenderer: React.FC<PageRendererProps> = ({ page, language, onNa
         {/* Original Cover Image from PDF */}
         <div className="z-10 relative my-6 w-64 h-64 sm:w-72 sm:h-72 rounded-full p-2 border-4 border-white/80 shadow-2xl flex items-center justify-center bg-white/20 backdrop-blur-sm overflow-hidden">
           <img
-            src="/pdf_images/cover.jpg"
+            src="pdf_images/cover.jpg"
             alt="Cover Illustration"
             className="w-full h-full object-cover rounded-full filter contrast-105"
           />
@@ -89,7 +89,7 @@ export const PageRenderer: React.FC<PageRendererProps> = ({ page, language, onNa
 
           {/* Original Preface Image from PDF */}
           <div className="w-full h-44 rounded-lg overflow-hidden shadow-lg mt-auto border border-zinc-200">
-            <img src="/pdf_images/preface_1.jpg" alt="Preface Illustration" className="w-full h-full object-cover" />
+            <img src="pdf_images/preface_1.jpg" alt="Preface Illustration" className="w-full h-full object-cover" />
           </div>
         </div>
 
@@ -216,7 +216,7 @@ export const PageRenderer: React.FC<PageRendererProps> = ({ page, language, onNa
 
           {/* Original Intro Image from PDF */}
           <div className="w-full h-52 rounded-xl overflow-hidden shadow-2xl mt-4 border-2 border-white/60">
-            <img src="/pdf_images/intro.jpg" alt="Introduction" className="w-full h-full object-cover" />
+            <img src="pdf_images/intro.jpg" alt="Introduction" className="w-full h-full object-cover" />
           </div>
 
           <div className="text-right pt-2 text-white font-bold text-xl">7</div>
@@ -319,10 +319,10 @@ export const PageRenderer: React.FC<PageRendererProps> = ({ page, language, onNa
 
       <div className="grid grid-cols-2 gap-4 my-4">
         <div className="h-40 rounded-xl overflow-hidden shadow-lg border border-zinc-200">
-          <img src="/pdf_images/conclusion_1.jpg" alt="Illustration 1" className="w-full h-full object-cover" />
+          <img src="pdf_images/conclusion_1.jpg" alt="Illustration 1" className="w-full h-full object-cover" />
         </div>
         <div className="h-40 rounded-xl overflow-hidden shadow-lg border border-zinc-200">
-          <img src="/pdf_images/conclusion_2.jpg" alt="Illustration 2" className="w-full h-full object-cover" />
+          <img src="pdf_images/conclusion_2.jpg" alt="Illustration 2" className="w-full h-full object-cover" />
         </div>
       </div>
 
